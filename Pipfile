@@ -21,6 +21,11 @@ python-dotenv = "*"
 django-cors-headers = "*"
 drf-yasg = "*"
 django-import-export = "*"
+whitenoise = "*"
+gunicorn = "*"
+werkzeug = "*"
+pillow = "*"
+psycopg2 = "*"
 
 [requires]
 python_version = "3.8"
