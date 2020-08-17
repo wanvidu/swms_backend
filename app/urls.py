@@ -22,6 +22,8 @@ from rest_framework import routers, permissions
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 
+from swms.views import ReservoirViewset
+
 schema_view = get_schema_view(
     openapi.Info(
         title="SWMS API",
@@ -36,11 +38,12 @@ schema_view = get_schema_view(
 )
 
 router = routers.DefaultRouter()
+router.register(r'reservoirs', ReservoirViewset)
 
 urlpatterns = [
     path('', include(router.urls)),
     url(r'^auth/', include('djoser.urls')),
-    url(r'^auth/', include('djoser.urls.jwt')),
+    url(r'^auth/', include('djoser.urls.authtoken')),
     url(r'^swagger(?P<format>\.json|\.yaml)$',
         schema_view.without_ui(cache_timeout=0), name='schema-json'),
     url(r'^swagger/$', schema_view.with_ui('swagger',
@@ -49,6 +52,7 @@ urlpatterns = [
                                          cache_timeout=0), name='schema-redoc'),
     path('grappelli/', include('grappelli.urls')),
     path('admin/', admin.site.urls),
+    path('api-auth/', include('rest_framework.urls')),
 ]
 
 if settings.DEBUG:
