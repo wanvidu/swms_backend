@@ -10,7 +10,7 @@ load_dotenv()
 
 def main():
     """Run administrative tasks."""
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'app.settings')
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'swms.settings')
     os.makedirs(settings.STATIC_ROOT, exist_ok=True)
     try:
         from django.core.management import execute_from_command_line

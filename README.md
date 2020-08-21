@@ -27,3 +27,7 @@ python manage.py migrate
 ```
 python manage.py runserver
 ```
+
+```
+python manage.py dumpdata --indent 2 <app>
+```
