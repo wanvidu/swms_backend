@@ -23,6 +23,7 @@ from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 
 from reservoirs.views import ReservoirViewset
+from water_level.views import WaterLevelViewset
 
 schema_view = get_schema_view(
     openapi.Info(
@@ -39,6 +40,7 @@ schema_view = get_schema_view(
 
 router = routers.DefaultRouter()
 router.register(r'reservoirs', ReservoirViewset)
+router.register(r'water_level', WaterLevelViewset)
 
 urlpatterns = [
     path('', include(router.urls)),

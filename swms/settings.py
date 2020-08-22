@@ -47,7 +47,9 @@ INSTALLED_APPS = [
     'corsheaders',
     'django_filters',
     'drf_yasg',
+    'django_extensions',
     'reservoirs',
+    'water_level',
 ]
 
 MIDDLEWARE = [
