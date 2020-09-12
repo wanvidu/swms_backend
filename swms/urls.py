@@ -24,6 +24,7 @@ from drf_yasg import openapi
 
 from reservoirs.views import ReservoirViewset
 from water_level.views import WaterLevelViewset
+from water_level_prediction.views import WaterLevelPredictionViewSet
 
 schema_view = get_schema_view(
     openapi.Info(
@@ -41,6 +42,8 @@ schema_view = get_schema_view(
 router = routers.DefaultRouter()
 router.register(r'reservoirs', ReservoirViewset)
 router.register(r'water_level', WaterLevelViewset)
+router.register(r'water_level_prediction',
+                WaterLevelPredictionViewSet, basename='water_level_prediction')
 
 urlpatterns = [
     path('', include(router.urls)),

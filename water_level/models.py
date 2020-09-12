@@ -6,7 +6,7 @@ class WaterLevel(models.Model):
     id = models.AutoField(primary_key=True)
     reservoir = models.ForeignKey(
         "reservoirs.Reservoir", on_delete=models.CASCADE)
-    date = MonthField("Month Value", help_text="some help...")
+    date = MonthField("Month Value", help_text="Month Value")
     water_level = models.IntegerField()
     water_consumption = models.IntegerField()
     rainfall = models.IntegerField()
