@@ -50,6 +50,8 @@ INSTALLED_APPS = [
     'django_extensions',
     'reservoirs',
     'water_level',
+    'water_level_prediction',
+    'water_consumption_prediction',
 ]
 
 MIDDLEWARE = [
@@ -194,3 +196,9 @@ CORS_ORIGIN_WHITELIST = [
 CORS_ORIGIN_REGEX_WHITELIST = [
     r"^https://[a-zA-Z0-9\-]+\.herokuapp\.com$",
 ]
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+    }
+}
