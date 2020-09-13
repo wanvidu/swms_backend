@@ -7,7 +7,7 @@ from month import Month
 currentYear = datetime.now().year
 currentMonth = datetime.now().month
 
-START_YEAR = 1990
+START_YEAR = 2005
 
 year_list = [y for y in range(START_YEAR, currentYear + 1)]
 

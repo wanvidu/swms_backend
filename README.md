@@ -4,7 +4,7 @@
 
 - Create .env file according to .env.example file to set environment variables.
 
-- Then run following commands in given order to start project.  
+- Then run following commands in given order to start project.
 
 ```
 pipenv install --dev
@@ -12,6 +12,10 @@ pipenv install --dev
 
 ```
 pipenv shell
+```
+
+```
+python manage.py createsuperuser
 ```
 
 ```
@@ -27,7 +31,9 @@ python manage.py migrate
 ```
 
 ```
-python manage.py syncdata reservoirs.json water_level_data.json
+python manage.py syncdata reservoirs_data.json -v3
+python manage.py runscript generate_water_level_data -v3
+python manage.py runscript generate_house_data -v3
 ```
 
 ```
@@ -49,19 +55,23 @@ python manage.py loaddata <filename.json>
 ```
 
 ### Makes the current database have the same data as the fixture(s).
+
 ```
 python manage.py syncdata data.json
 ```
 
 ## To dump the data from all the models in a given Django app
+
 ```
 python manage.py dumpscript reservoirs > scripts/reservoirs_data.py
 ```
 
 ## To reset a given app, and reload with the saved data
+
 ```
 python manage.py reset appname
 ```
+
 ```
 python manage.py runscript testdata
 ```
@@ -77,3 +87,10 @@ python manage.py startapp <app>
 ```
 python manage.py runscript generate_water_level_data
 ```
+
+## Create new user
+
+````
+python manage.py createsuperuser
+```
+````
