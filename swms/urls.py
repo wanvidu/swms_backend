@@ -12,6 +12,7 @@ from water_level.views import WaterLevelViewset
 from water_level_prediction.views import WaterLevelPredictionViewSet
 from water_consumption_prediction.views import WaterConsumptionPredictionViewSet
 from home_details.views import HomeViewset, HomeWaterConsumptionViewset
+from domestic_water_consumption_prediction.views import DomesticWaterConsumptionPredictionViewSet
 
 schema_view = get_schema_view(
     openapi.Info(
@@ -31,11 +32,12 @@ router.register(r'reservoirs', ReservoirViewset)
 router.register(r'water_level', WaterLevelViewset)
 router.register(r'water_level_prediction',
                 WaterLevelPredictionViewSet, basename='water_level_prediction')
-router.register(r'water_level_consumption',
-                WaterConsumptionPredictionViewSet, basename='water_level_consumption')
+router.register(r'water_consumption_prediction',
+                WaterConsumptionPredictionViewSet, basename='water_consumption_prediction')
 router.register(r'homes', HomeViewset)
 router.register(r'home_details', HomeWaterConsumptionViewset)
-
+router.register(r'domestic_water_level_consumption_prediction',
+                DomesticWaterConsumptionPredictionViewSet, basename='domestic_water_consumption_prediction')
 
 urlpatterns = [
     path('', include(router.urls)),

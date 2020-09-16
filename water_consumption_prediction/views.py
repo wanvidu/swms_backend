@@ -18,10 +18,10 @@ class WaterConsumptionPredictionViewSet(viewsets.ViewSet):
     def retrieve(self, request, pk=None):
         reservoir = get_object_or_404(Reservoir, pk=pk)
 
-        water_levels = WaterLevel.objects.filter(
+        water_consumptions = WaterLevel.objects.filter(
             reservoir__id=pk).order_by('date')
 
-        *_, data = predict_water_consumption(reservoir, water_levels)
+        *_, data = predict_water_consumption(reservoir, water_consumptions)
 
         serializer = WaterConsumptionPredictSerializer(data, read_only=True)
 

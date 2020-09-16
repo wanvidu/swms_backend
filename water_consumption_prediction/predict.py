@@ -13,7 +13,7 @@ RANDOM_SEED = 42
 np.random.seed(RANDOM_SEED)
 tf.random.set_seed(RANDOM_SEED)
 
-n_steps_in, n_steps_out = 32, 12
+n_steps_in, n_steps_out = 36, 12
 
 CURRENT_DIR = Path(__file__).resolve(strict=True).parent
 

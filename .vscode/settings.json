@@ -1,0 +1,11 @@
+{
+    "python.pythonPath": "C:\\Users\\Admin\\anaconda3\\python.exe",
+    "files.autoSaveDelay": 10000,
+    "cSpell.words": [
+        "djoser",
+        "dotenv",
+        "getenv",
+        "grappelli",
+        "yasg"
+    ]
+}
