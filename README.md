@@ -1,25 +1,21 @@
 # swms_backend
 
-- Install pipenv if not available.
-
 - Create .env file according to .env.example file to set environment variables.
+
+- Run this inside conda with tensorflow 2.2.0 available.
 
 - Then run following commands in given order to start project.
 
 ```
-pipenv install --dev
+conda create --name ml python=3.7
 ```
 
 ```
-pipenv shell
+conda activate ml
 ```
 
 ```
-python manage.py createsuperuser
-```
-
-```
-python manage.py collectstatic
+pip install -r requirements.txt
 ```
 
 ```
@@ -28,6 +24,14 @@ python manage.py makemigrations
 
 ```
 python manage.py migrate
+```
+
+```
+python manage.py createsuperuser
+```
+
+```
+python manage.py collectstatic
 ```
 
 ```
