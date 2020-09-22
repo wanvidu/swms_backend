@@ -587,44 +587,7 @@ class DisplayMgr:
         print(table)
 
 
-def generate_paddy_water_distribution_plan(data_list):
-
-    tanks = [
-        [1, data_list[0]['reservoir'].name, data_list[0]['reservoir'].capacity],
-        [2, data_list[1]['reservoir'].name, data_list[1]['reservoir'].capacity],
-        [3, data_list[2]['reservoir'].name, data_list[2]['reservoir'].capacity],
-        [4, data_list[3]['reservoir'].name, data_list[3]['reservoir'].capacity],
-    ]
-
-    # tanks = [[1, 'Nachchaduwa', 45150], [2, 'Nuwara Wewa', 36050],
-    #          [3, 'Thisawewa', 3500], [4, 'Thuruwila Wewa', 5190]]
-
-    available_capacity = [[1, 'January',
-                           (int)(
-                               data_list[0]['predicted_water_levels']['water_level']/cu),
-                           (int)(
-                               data_list[1]['predicted_water_levels']['water_level']/cu),
-                           (int)(
-                               data_list[2]['predicted_water_levels']['water_level']/cu),
-                           (int)(
-                               data_list[3]['predicted_water_levels']['water_level']/cu),
-                           ]]
-
-    # available_capacity = [[1, 'January', 29, 35, 35, 27]]
-
-    water_needs = [[1, 'Maha', 'January',
-                    (int)(
-                        data_list[0]['predicted_water_consumptions']['water_consumption']/cu),
-                    (int)(
-                        data_list[1]['predicted_water_consumptions']['water_consumption']/cu),
-                    (int)(
-                        data_list[2]['predicted_water_consumptions']['water_consumption']/cu),
-                    (int)(
-                        data_list[3]['predicted_water_consumptions']['water_consumption']/cu),
-                    ]]
-
-    # water_needs = [[1, 'Maha', 'January', 30, 33, 35, 30]]
-
+def main(tanks, available_capacity, water_needs):
     print(tanks)
 
     data = Data(tanks, water_needs, available_capacity)
@@ -658,6 +621,56 @@ def generate_paddy_water_distribution_plan(data_list):
             'from_nuwarawewa': (int)(i.get_fromNuwarawewa()*cu),
             'from_thisawewa': (int)(i.get_fromThisawewa()*cu),
             'from_thuruwila': (int)(i.get_fromThuruwila()*cu),
+        })
+
+    return output
+
+
+def generate_paddy_water_distribution_plan(data_list):
+
+    # tanks = [[1, 'Nachchaduwa', 45150], [2, 'Nuwara Wewa', 36050],
+    #          [3, 'Thisawewa', 3500], [4, 'Thuruwila Wewa', 5190]]
+
+    tanks = [
+        [1, data_list[0]['reservoir'].name, data_list[0]['reservoir'].capacity],
+        [2, data_list[1]['reservoir'].name, data_list[1]['reservoir'].capacity],
+        [3, data_list[2]['reservoir'].name, data_list[2]['reservoir'].capacity],
+        [4, data_list[3]['reservoir'].name, data_list[3]['reservoir'].capacity],
+    ]
+
+    output = []
+
+    for i in range(len(data_list[0]['predicted_water_levels'])):
+
+        # available_capacity = [[1, 'January', 29, 35, 35, 27]]
+
+        available_capacity = [[1, 'January',
+                               (int)(
+                                   data_list[0]['predicted_water_levels'][i]['water_level']/cu),
+                               (int)(
+                                   data_list[1]['predicted_water_levels'][i]['water_level']/cu),
+                               (int)(
+                                   data_list[2]['predicted_water_levels'][i]['water_level']/cu),
+                               (int)(
+                                   data_list[3]['predicted_water_levels'][i]['water_level']/cu),
+                               ]]
+
+        # water_needs = [[1, 'Maha', 'January', 30, 33, 35, 30]]
+
+        water_needs = [[1, 'Maha', 'January',
+                        (int)(
+                            data_list[0]['predicted_water_consumptions'][i]['water_consumption_paddy']/cu),
+                        (int)(
+                            data_list[1]['predicted_water_consumptions'][i]['water_consumption_paddy']/cu),
+                        (int)(
+                            data_list[2]['predicted_water_consumptions'][i]['water_consumption_paddy']/cu),
+                        (int)(
+                            data_list[3]['predicted_water_consumptions'][i]['water_consumption_paddy']/cu),
+                        ]]
+
+        output.append({
+            'date': data_list[0]['predicted_water_levels'][i]['date'],
+            'data': main(tanks, available_capacity, water_needs),
         })
 
     return output

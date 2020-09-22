@@ -43,8 +43,8 @@ class PaddyWaterDistributionPlanViewSet(viewsets.ViewSet):
 
             data_list.append({
                 'reservoir': i,
-                'predicted_water_levels': predicted_water_levels[0],
-                'predicted_water_consumptions': predicted_water_consumptions[0]
+                'predicted_water_levels': predicted_water_levels,
+                'predicted_water_consumptions': predicted_water_consumptions
             })
 
         data = generate_paddy_water_distribution_plan(data_list)

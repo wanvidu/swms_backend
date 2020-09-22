@@ -61,9 +61,10 @@ def predict_water_consumption(reservoir, water_levels):
     df.loc[:, f_columns] = scaler.inverse_transform(
         df[f_columns].to_numpy())
 
-    print(df)
+    print(df[['water_consumption_domestic', 'water_consumption_paddy']])
 
-    print(final_output)
+    print(
+        final_output[['water_consumption_domestic', 'water_consumption_paddy']])
 
     real_list = []
 

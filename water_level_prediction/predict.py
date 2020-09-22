@@ -60,9 +60,9 @@ def predict_water_level(reservoir, water_levels):
     df.loc[:, f_columns] = scaler.inverse_transform(
         df[f_columns].to_numpy())
 
-    print(df)
+    print(df[['water_level']])
 
-    print(final_output)
+    print(final_output[['water_level']])
 
     real_list = []
 
