@@ -6,11 +6,12 @@ from reservoirs.serializers import ReservoirSerializer
 
 class WaterConsumptionDataSerializer(serializers.Serializer):
     date = serializers.DateField()
-    water_consumption = serializers.DecimalField(
+    water_consumption_domestic = serializers.DecimalField(
+        max_digits=10, decimal_places=4)
+    water_consumption_paddy = serializers.DecimalField(
         max_digits=10, decimal_places=4)
     rainfall = serializers.DecimalField(max_digits=10, decimal_places=4)
     temperature = serializers.DecimalField(max_digits=10, decimal_places=4)
-    evaporation = serializers.DecimalField(max_digits=10, decimal_places=4)
 
 
 class WaterConsumptionPredictSerializer(serializers.Serializer):

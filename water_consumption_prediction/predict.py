@@ -22,13 +22,14 @@ PREDICTION_MODEL_NAME = 'WaterConsumptionPredictionModel'
 
 def predict_water_consumption(reservoir, water_levels):
     df = read_frame(water_levels, fieldnames=[
-        'date', 'water_consumption', 'rainfall', 'temperature', 'evaporation'], index_col=['date'])
+        'date', 'water_consumption_domestic', 'water_consumption_paddy', "rainfall", 'temperature'], index_col=['date'])
 
     df = df.tail(n_steps_in)
 
     scaled_data = df
 
-    f_columns = ['water_consumption', 'rainfall', 'temperature', 'evaporation']
+    f_columns = ['water_consumption_domestic',
+                 'water_consumption_paddy', "rainfall", 'temperature']
 
     scaler = MinMaxScaler(feature_range=(0, 1))
 
@@ -69,10 +70,10 @@ def predict_water_consumption(reservoir, water_levels):
     for index, row in df.iterrows():
         real_list.append({
             'date': datetime.date(index.year, index.month, 1),
-            'water_consumption': row['water_consumption'],
+            'water_consumption_domestic': row['water_consumption_domestic'],
+            'water_consumption_paddy': row['water_consumption_paddy'],
             'rainfall': row['rainfall'],
             'temperature': row['temperature'],
-            'evaporation': row['evaporation'],
         })
 
     predicted_list = []
@@ -80,10 +81,10 @@ def predict_water_consumption(reservoir, water_levels):
     for index, row in final_output.iterrows():
         predicted_list.append({
             'date': datetime.date(index.year, index.month, 1),
-            'water_consumption': row['water_consumption'],
+            'water_consumption_domestic': row['water_consumption_domestic'],
+            'water_consumption_paddy': row['water_consumption_paddy'],
             'rainfall': row['rainfall'],
             'temperature': row['temperature'],
-            'evaporation': row['evaporation'],
         })
 
     data = {
