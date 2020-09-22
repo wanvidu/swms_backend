@@ -27,10 +27,13 @@ def run(*args):
                     reservoir=reservoir,
                     date=Month(year, month),
                     water_level=random.randint(20000, 60000),
-                    water_consumption=random.randint(20000, 60000),
+                    water_consumption_domestic=random.randint(20000, 40000),
+                    water_consumption_paddy=random.randint(20000, 40000),
                     rainfall=random.randint(5, 25),
                     temperature=random.randint(25, 47),
                     evaporation=random.randint(2, 10)
                 )
+
                 print(water_level)
+
                 water_level.save()

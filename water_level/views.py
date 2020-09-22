@@ -18,7 +18,7 @@ class WaterLevelViewset(viewsets.ReadOnlyModelViewSet):
     search_fields = ["reservoir__name"]
     # filterset_fields = ["reservoir__name", "reservoir__id"]
     ordering_fields = ["reservoir__name", "date", "water_level",
-                       "water_consumption", "rainfall", "temperature", "evaporation"]
+                       "water_consumption_domestic", "water_consumption_paddy", "rainfall", "temperature", "evaporation"]
 
     @method_decorator(cache_page(60*60*12))
     def dispatch(self, request, *args, **kwargs):
