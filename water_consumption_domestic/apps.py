@@ -1,5 +1,5 @@
 from django.apps import AppConfig
 
 
-class WaterLevelConfig(AppConfig):
+class WaterConsumptionDomesticConfig(AppConfig):
     name = 'water_consumption_domestic'

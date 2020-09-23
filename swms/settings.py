@@ -51,7 +51,6 @@ INSTALLED_APPS = [
     'reservoirs',
     'water_level',
     'water_level_prediction',
-    'water_consumption_prediction',
     'home_details',
     'domestic_water_consumption_prediction',
     'water_consumption_domestic',

@@ -10,7 +10,7 @@ from drf_yasg import openapi
 from reservoirs.views import ReservoirViewset
 from water_level.views import WaterLevelViewset
 from water_level_prediction.views import WaterLevelPredictionViewSet
-from water_consumption_prediction.views import WaterConsumptionPredictionViewSet
+from water_consumption_prediction_domestic.views import WaterConsumptionPredictionDomesticViewSet
 from home_details.views import HomeViewset, HomeWaterConsumptionViewset
 from domestic_water_consumption_prediction.views import DomesticWaterConsumptionPredictionViewSet
 from domestic_water_distribution_plan.views import DomesticWaterDistributionPlanViewSet
@@ -38,8 +38,8 @@ router.register(r'water_consumption_domestic', WaterConsumptionDomesticViewset)
 router.register(r'water_consumption_paddy', WaterConsumptionPaddyViewset)
 router.register(r'water_level_prediction',
                 WaterLevelPredictionViewSet, basename='water_level_prediction')
-router.register(r'water_consumption_prediction',
-                WaterConsumptionPredictionViewSet, basename='water_consumption_prediction')
+router.register(r'water_consumption_prediction_domestic',
+                WaterConsumptionPredictionDomesticViewSet, basename='water_consumption_prediction')
 router.register(r'homes', HomeViewset)
 router.register(r'home_details', HomeWaterConsumptionViewset)
 router.register(r'domestic_water_level_consumption_prediction',
