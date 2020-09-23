@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     'home_details',
     'domestic_water_consumption_prediction',
     'water_consumption_domestic',
+    'water_consumption_paddy',
 ]
 
 MIDDLEWARE = [
