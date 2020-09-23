@@ -37,6 +37,7 @@ python manage.py collectstatic
 ```
 python manage.py syncdata reservoirs_data.json -v3
 python manage.py runscript generate_water_level_data -v3
+python manage.py runscript generate_water_consumption_domsetic_data -v3
 python manage.py runscript generate_house_data -v3
 ```
 

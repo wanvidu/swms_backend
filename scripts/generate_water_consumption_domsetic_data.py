@@ -1,7 +1,7 @@
 from datetime import datetime
 import random
 from reservoirs.models import Reservoir
-from water_level.models import WaterLevel
+from water_consumption_domestic.models import WaterConsumptionDomestic
 from month import Month
 
 currentYear = datetime.now().year
@@ -23,15 +23,15 @@ def run(*args):
                 if year == currentYear and month > currentMonth:
                     break
 
-                water_level = WaterLevel(
+                water_consumption_domestic = WaterConsumptionDomestic(
                     reservoir=reservoir,
                     date=Month(year, month),
-                    water_level=random.randint(20000, 60000),
-                    rainfall=random.randint(5, 25),
-                    temperature=random.randint(25, 47),
-                    evaporation=random.randint(2, 10)
+                    water_consumption_domestic=random.randint(20000, 40000),
+                    population=random.randint(5000, 20000),
+                    no_of_families=random.randint(1000, 5000),
+                    no_of_housing_units=random.randint(1000, 5000),
                 )
 
-                print(water_level)
+                print(water_consumption_domestic)
 
-                water_level.save()
+                water_consumption_domestic.save()

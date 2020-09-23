@@ -15,6 +15,7 @@ from home_details.views import HomeViewset, HomeWaterConsumptionViewset
 from domestic_water_consumption_prediction.views import DomesticWaterConsumptionPredictionViewSet
 from domestic_water_distribution_plan.views import DomesticWaterDistributionPlanViewSet
 from paddy_water_distribution_plan.views import PaddyWaterDistributionPlanViewSet
+from water_consumption_domestic.views import WaterConsumptionDomesticViewset
 
 schema_view = get_schema_view(
     openapi.Info(
@@ -32,6 +33,7 @@ schema_view = get_schema_view(
 router = routers.DefaultRouter()
 router.register(r'reservoirs', ReservoirViewset)
 router.register(r'water_level', WaterLevelViewset)
+router.register(r'water_consumption_domestic', WaterConsumptionDomesticViewset)
 router.register(r'water_level_prediction',
                 WaterLevelPredictionViewSet, basename='water_level_prediction')
 router.register(r'water_consumption_prediction',
