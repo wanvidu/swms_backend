@@ -6,12 +6,12 @@ from django.shortcuts import get_object_or_404
 from django.utils.decorators import method_decorator
 from django.views.decorators.cache import cache_page
 
-from home_details.models import Home, HomeWaterConsumption
 from water_level.models import WaterLevel
+from water_consumption_paddy.models import WaterConsumptionPaddy
 from reservoirs.models import Reservoir
 from .serializers import PaddyWaterDistributionPlanSerializer
 from water_level_prediction.predict import predict_water_level
-from water_consumption_prediction.predict import predict_water_consumption
+from water_consumption_prediction_paddy.predict import predict_water_consumption_paddy
 from .predict import generate_paddy_water_distribution_plan
 
 
@@ -38,8 +38,11 @@ class PaddyWaterDistributionPlanViewSet(viewsets.ViewSet):
 
             _, predicted_water_levels, _ = predict_water_level(i, water_levels)
 
-            _, predicted_water_consumptions, _ = predict_water_consumption(
-                i, water_levels)
+            water_consumptions_paddy = WaterConsumptionPaddy.objects.filter(
+                reservoir__id=i.id).order_by('date')
+
+            _, predicted_water_consumptions, _ = predict_water_consumption_paddy(
+                i, water_consumptions_paddy)
 
             data_list.append({
                 'reservoir': i,

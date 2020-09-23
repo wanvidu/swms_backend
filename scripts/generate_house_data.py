@@ -21,7 +21,7 @@ def run(*args):
 
         i = 1
 
-        for h in range(random.randint(5, 16)):
+        for h in range(random.randint(25, 30)):
             home = Home(
                 reservoir=reservoir,
                 home_name=f"Home {i}",
@@ -40,7 +40,7 @@ def run(*args):
                     home_water_consumption = HomeWaterConsumption(
                         home=home,
                         date=Month(year, month),
-                        water_consumption=random.randint(500, 2500),
+                        water_consumption=random.randint(500, 1500),
                     )
 
                     print(home_water_consumption)

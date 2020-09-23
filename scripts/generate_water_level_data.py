@@ -26,7 +26,7 @@ def run(*args):
                 water_level = WaterLevel(
                     reservoir=reservoir,
                     date=Month(year, month),
-                    water_level=random.randint(20000, 60000),
+                    water_level=random.randint(30000, 50000),
                     rainfall=random.randint(5, 25),
                     temperature=random.randint(25, 47),
                     evaporation=random.randint(2, 10)

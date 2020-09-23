@@ -11,6 +11,7 @@ from reservoirs.views import ReservoirViewset
 from water_level.views import WaterLevelViewset
 from water_level_prediction.views import WaterLevelPredictionViewSet
 from water_consumption_prediction_domestic.views import WaterConsumptionPredictionDomesticViewSet
+from water_consumption_prediction_paddy.views import WaterConsumptionPredictionPaddyViewSet
 from home_details.views import HomeViewset, HomeWaterConsumptionViewset
 from domestic_water_consumption_prediction.views import DomesticWaterConsumptionPredictionViewSet
 from domestic_water_distribution_plan.views import DomesticWaterDistributionPlanViewSet
@@ -39,7 +40,9 @@ router.register(r'water_consumption_paddy', WaterConsumptionPaddyViewset)
 router.register(r'water_level_prediction',
                 WaterLevelPredictionViewSet, basename='water_level_prediction')
 router.register(r'water_consumption_prediction_domestic',
-                WaterConsumptionPredictionDomesticViewSet, basename='water_consumption_prediction')
+                WaterConsumptionPredictionDomesticViewSet, basename='water_consumption_prediction_domestic')
+router.register(r'water_consumption_prediction_paddy',
+                WaterConsumptionPredictionPaddyViewSet, basename='water_consumption_prediction_paddy')
 router.register(r'homes', HomeViewset)
 router.register(r'home_details', HomeWaterConsumptionViewset)
 router.register(r'domestic_water_level_consumption_prediction',
