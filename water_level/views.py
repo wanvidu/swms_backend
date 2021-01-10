@@ -9,7 +9,7 @@ from .pagination import StandardResultsSetPagination
 from .filters import WaterLevelFilter
 
 
-class WaterLevelViewset(viewsets.ReadOnlyModelViewSet):
+class WaterLevelViewset(viewsets.ModelViewSet):
     queryset = WaterLevel.objects.all()
     serializer_class = WaterLevelSerializer
     # permission_classes = [permissions.IsAuthenticated]

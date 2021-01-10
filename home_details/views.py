@@ -9,7 +9,7 @@ from .pagination import StandardResultsSetPagination
 from .filters import HomeFilter, HomeWaterConsumptionFilter
 
 
-class HomeViewset(viewsets.ReadOnlyModelViewSet):
+class HomeViewset(viewsets.ModelViewSet):
     queryset = Home.objects.all()
     serializer_class = HomeSerializer
     # permission_classes = [permissions.IsAuthenticated]
@@ -24,7 +24,7 @@ class HomeViewset(viewsets.ReadOnlyModelViewSet):
         return super().dispatch(request, *args, **kwargs)
 
 
-class HomeWaterConsumptionViewset(viewsets.ReadOnlyModelViewSet):
+class HomeWaterConsumptionViewset(viewsets.ModelViewSet):
     queryset = HomeWaterConsumption.objects.all()
     serializer_class = HomeWaterConsumptionSerializer
     # permission_classes = [permissions.IsAuthenticated]

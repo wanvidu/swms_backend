@@ -8,7 +8,7 @@ from .serializers import ReservoirSerializer
 from .pagination import StandardResultsSetPagination
 
 
-class ReservoirViewset(viewsets.ReadOnlyModelViewSet):
+class ReservoirViewset(viewsets.ModelViewSet):
     queryset = Reservoir.objects.all()
     serializer_class = ReservoirSerializer
     # permission_classes = [permissions.IsAuthenticated]

@@ -9,7 +9,7 @@ from .pagination import StandardResultsSetPagination
 from .filters import WaterConsumptionPaddyFilter
 
 
-class WaterConsumptionPaddyViewset(viewsets.ReadOnlyModelViewSet):
+class WaterConsumptionPaddyViewset(viewsets.ModelViewSet):
     queryset = WaterConsumptionPaddy.objects.all()
     serializer_class = WaterConsumptionPaddySerializer
     # permission_classes = [permissions.IsAuthenticated]
